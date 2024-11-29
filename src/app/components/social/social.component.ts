@@ -12,9 +12,8 @@ import { RouterLink } from '@angular/router';
 export class SocialComponent {
   social : {icon:string, text:string, url: string}[]  = [
     {icon: "../../../assets/icons/instagram.svg", text: "Instagram", url: "https://www.instagram.com/alta__esports/"},
-    {icon: "../../../assets/icons/twitter.svg", text: "Twitter", url: "https://www.instagram.com/alta__esports/"},
-    {icon: "../../../assets/icons/youtube.svg", text: "Youtube", url: "https://discord.gg/XfuV3zNG"},
-    {icon: "../../../assets/icons/discord.svg", text: "Discord", url: "https://www.instagram.com/alta__esports/"},
+    {icon: "../../../assets/icons/tiktok.svg", text: "TikTok", url: "https://www.tiktok.com/@alta_rp_"},
+    {icon: "../../../assets/icons/discord.svg", text: "Discord", url: "https://discord.gg/KDVxmbPyYE"},
   ];
 
   private defaultColor = "#ffffff"; // Cor padrão

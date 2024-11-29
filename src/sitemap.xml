@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Página inicial -->
+  <url>
+    <loc>https://altarp.pt/</loc>
+    <lastmod>2024-11-29</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <!-- Seção Regras -->
+  <url>
+    <loc>https://altarp.pt/#regras</loc> <!-- Hash para a seção "Regras" -->
+    <lastmod>2024-11-29</lastmod>
+    <priority>0.80</priority>
+  </url>
+</urlset>

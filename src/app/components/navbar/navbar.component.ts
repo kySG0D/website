@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Location } from '@angular/common';
 import { urls } from '../../services/links.service';
 import { ButtonComponent } from '../button/button.component';
 
@@ -26,10 +26,19 @@ export class NavbarComponent {
   urls = urls;
   candidaturaURl = "Candidatar";
 
+  constructor(private location: Location) {}
+
   scrollToSection(sectionId: string) {
     const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+    if(section){
+      if (sectionId === 'inicio') {
+        section.scrollIntoView({ behavior: 'smooth' });
+        this.location.go(`#${sectionId}`);
+      }else{
+        section.scrollIntoView({ behavior: 'smooth' });
+        this.location.go(`#${sectionId}`);
+      }
+    
     }
   }
 }
