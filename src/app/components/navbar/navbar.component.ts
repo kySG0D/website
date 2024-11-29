@@ -33,7 +33,7 @@ export class NavbarComponent {
     if(section){
       if (sectionId === 'inicio') {
         section.scrollIntoView({ behavior: 'smooth' });
-        this.location.go(`#${sectionId}`);
+        this.location.go('');
       }else{
         section.scrollIntoView({ behavior: 'smooth' });
         this.location.go(`#${sectionId}`);
