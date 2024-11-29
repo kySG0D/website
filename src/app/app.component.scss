@@ -1,0 +1,102 @@
+.font-color-gray{
+    color: #2e2e2e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a24;
+    color: #FFFFFF;
+}
+h1, p{
+    margin: 0;
+}
+#app-container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.home-background{
+    // background-image: url("../assets/bg/bg-home.png");
+}
+
+.content {
+    display: flex;
+    flex: 1;
+  }
+
+.pointer{
+    cursor: pointer;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.text-18{
+    font-size: 18px;
+}
+
+.text-30{
+    font-size: 30px;
+}
+
+// -------------------------------------------------------- app- components --------------------------------------------------------
+
+app-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+app-footer {
+    height: 130px;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    line-height: auto;
+    width: 100%;
+    z-index: 10;
+}
+// ficar colado á tela
+// app-footer {
+//     height: auto;
+//     text-align: center;
+//     line-height: auto;
+//     width: 100%;
+//     position: fixed;
+//     bottom: 0;
+//     left: 0;
+//     z-index: 10;
+// }
+
+// -------------------------------------------------------- scroll-bar --------------------------------------------------------
+::-webkit-scrollbar-thumb {
+    background: #FFC046; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #ffc1468c; 
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+// ----------------------------------------------------------------------------------------------------------------

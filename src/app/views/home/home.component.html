@@ -1,0 +1,18 @@
+<div class="main">
+    <div id="inicio" class="inicio-section">
+        <div class="home-container">
+            <div class="home-box">
+                <p class="home-text">{{welcomeText}}</p>
+    
+                <div class="bts">
+                    <app-button btnType="normal" [link]="urls.connectServerRp" [buttonText]="connectServerRp"></app-button>
+                    <p class="txt-candidatura">Tens que ter whitelist</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="regras" class="section">
+        <app-regras></app-regras>
+    </div>
+</div>
