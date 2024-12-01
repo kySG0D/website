@@ -6,7 +6,10 @@
     
                 <div class="bts">
                     <app-button btnType="normal" [link]="urls.connectServerRp" [buttonText]="connectServerRp"></app-button>
-                    <p class="txt-candidatura">Tens que ter whitelist</p>
+                    <div class="under-btn">
+                        <p class="txt-candidatura">Tens que ter whitelist</p>
+                        <img class="icon-click" src="../../../assets/icons/sound.svg" (click)="playAudio()"/>
+                    </div>
                 </div>
             </div>
         </div>

@@ -60,6 +60,19 @@
   margin-bottom: 60px;
 }
 
+.under-btn{
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.under-btn p{
+  display: flex;
+  align-items: center;
+}
+.under-btn .icon-click:hover{
+  cursor: pointer;  
+}
+
 @media (max-width: 425px) {
   .home-text {
     font-size: 18px;
