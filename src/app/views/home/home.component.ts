@@ -34,7 +34,7 @@ export class homeComponent implements OnInit{
   urls = urls;
   connectServerRp = "Conectar";
   candidaturaURl = "Candidatar";
-  private audio: HTMLAudioElement = new Audio('../../assets/mp3/carlos_leva_no_cu.ogg');;
+  // private audio: HTMLAudioElement = new Audio('../../assets/mp3/carlos_leva_no_cu.ogg');
 
   navbarItems = [
     { url: 'inicio', text: 'Início' },
@@ -47,11 +47,11 @@ export class homeComponent implements OnInit{
       this.navbar.scrollToSection(sectionId);
     }
 
-    this.audio.loop = true;
-    this.audio.volume = 1;
+  //   this.audio.loop = true;
+  //   this.audio.volume = 1;
 
-    this.audio.play().catch((error) => {
-      console.warn('Reprodução automática bloqueada pelo navegador:', error);
-    });
+  //   this.audio.play().catch((error) => {
+  //     console.warn('Reprodução automática bloqueada pelo navegador:', error);
+  //   });
   }
 }
