@@ -5,11 +5,12 @@ import { urls } from '../../services/links.service';
 import { SocialComponent } from '../../components/social/social.component';
 import { RegrasComponent } from '../../components/regras/regras.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ButtonComponent, SocialComponent, RegrasComponent],
+  imports: [ButtonComponent, SocialComponent, RegrasComponent, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   animations: [
@@ -34,24 +35,64 @@ export class homeComponent implements OnInit{
   urls = urls;
   connectServerRp = "Conectar";
   candidaturaURl = "Candidatar";
-  // private audio: HTMLAudioElement = new Audio('../../assets/mp3/carlos_leva_no_cu.ogg');
+  private audio: HTMLAudioElement = new Audio('../../assets/mp3/bg_sound.mp3');
 
   navbarItems = [
     { url: 'inicio', text: 'Início' },
     { url: 'regras', text: 'Regras' },
   ];
 
+  bgImgs = [
+    '../../assets/bg/bg1.png',
+    '../../assets/bg/bg2.png',
+    '../../assets/bg/bg3.png',
+    '../../assets/bg/bg4.png',
+    '../../assets/bg/bg5.png',
+    '../../assets/bg/bg6.png',
+    '../../assets/bg/bg7.png',
+    '../../assets/bg/bg8.png',
+    '../../assets/bg/bg9.png',
+    '../../assets/bg/bg10.png',
+    '../../assets/bg/bg11.png'
+  ];
+
+  activeIndex = 0;
+
   ngOnInit(): void {
+    this.updateBackgroundImage();
+    this.startCarousel();
     const sectionId = window.location.hash.substring(1);
     if (sectionId && this.navbar) {
       this.navbar.scrollToSection(sectionId);
     }
 
-  //   this.audio.loop = true;
-  //   this.audio.volume = 1;
+    this.audio.loop = true;
+    this.audio.volume = 0.3;
 
-  //   this.audio.play().catch((error) => {
-  //     console.warn('Reprodução automática bloqueada pelo navegador:', error);
-  //   });
+    this.audio.play().catch((error) => {
+      console.warn('Reprodução automática bloqueada pelo navegador:', error);
+    });
+  }
+
+  startCarousel() {
+    setInterval(() => {
+      this.activeIndex = (this.activeIndex + 1) % this.bgImgs.length;
+      this.updateBackgroundImage();
+    }, 4000);
+  }
+
+  updateBackgroundImage() {
+    const carouselContainer = document.querySelector('.carousel-container');
+    
+    if (carouselContainer) {
+      const newImageUrl = this.bgImgs[this.activeIndex];
+      
+      const image = new Image();
+      image.src = newImageUrl;
+  
+      image.onload = () => {
+        carouselContainer.setAttribute('style', `background-image: url(${newImageUrl});`);
+      };
+    }
   }
 }

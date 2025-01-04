@@ -1,15 +1,45 @@
 .inicio-section {
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  height: 100vh; /* Altura total da tela */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   width: 100vw;
   padding: 40px;
-  background-image: url("../../../assets/bg/bg-home.png"); /* Substitua pelo caminho da sua imagem */
-  background-size: cover; /* Garante que a imagem cubra toda a seção */
-  background-position: center; /* Centraliza a imagem */
-  color: #ffffff; /* Cor do texto */
-  text-align: center; /* Centraliza o texto */
+  position: relative;
+}
+
+.carousel-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: #000; /* Cor de fundo temporária */
+  z-index: 1;
+  transition: background-image 1s ease-in-out;
+}
+
+
+.carousel-box{
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  justify-content: center;
+}
+
+.home-container {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  z-index: 1;
 }
 
 .section {
@@ -23,39 +53,29 @@
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(10, 12, 16, 0) 30%);
 }
 
-.home{
-  height: 100vh;
+.home-box {
+  background-color: rgba(26, 26, 36, 0.82);
+  border-radius: 15px;
+  padding: 60px;
 }
 
-.incio {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  flex-direction: column;
-  flex: 1;
-  min-width: 100vw;
-  justify-content: center;
-  align-items: center;
-  color: #FFFFFF;
-}
-.home-container{
-  background-color: #1a1a24a2;
-  border-radius: 15px;
-}
-.home-box{
-  margin: 60px;
-}
-.bts{
+.bts {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 30px;
 }
 
-.home-text{
+.home-text {
   text-align: center;
   font-size: 30px;
+  color: #ffffff;
 }
+
+.txt-candidatura {
+  color: #fff;
+}
+
 .main{
   margin-bottom: 60px;
 }
