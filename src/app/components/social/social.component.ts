@@ -1,13 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-social',
-  standalone: true,
-  imports: [CommonModule, RouterLink],
   templateUrl: './social.component.html',
-  styleUrl: './social.component.scss'
+  styleUrls: ['./social.component.scss']
 })
 export class SocialComponent {
   social : {icon:string, text:string, url: string}[]  = [

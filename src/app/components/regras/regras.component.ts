@@ -1,12 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-regras',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './regras.component.html',
-  styleUrl: './regras.component.scss'
+  styleUrls: ['./regras.component.scss']
 })
 export class RegrasComponent {
   imgURL = "../../assets/bg/regras-img.png";

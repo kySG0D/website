@@ -1,18 +1,12 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ButtonComponent } from '../../components/button/button.component';
-import { urls } from '../../services/links.service';
-import { SocialComponent } from '../../components/social/social.component';
-import { RegrasComponent } from '../../components/regras/regras.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { CommonModule } from '@angular/common';
+import { urls } from '../../services/links.service';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
-  imports: [ButtonComponent, SocialComponent, RegrasComponent, CommonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  styleUrls: ['./home.component.scss'],
   animations: [
     trigger('fadeAnimation', [
       state('visible', style({ opacity: 1 })),
@@ -27,7 +21,7 @@ import { CommonModule } from '@angular/common';
   ]
 })
 
-export class homeComponent implements OnInit{
+export class HomeComponent implements OnInit{
   @ViewChild(NavbarComponent) navbar: NavbarComponent | undefined;
   
   welcomeText = "Bem Vindo ao Alta Roleplay";

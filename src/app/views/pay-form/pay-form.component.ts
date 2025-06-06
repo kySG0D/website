@@ -1,20 +1,21 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ApiMngService } from '../../services/api-mng.service';
 
 @Component({
   selector: 'app-pay-form',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: './pay-form.component.html',
-  styleUrl: './pay-form.component.scss'
+  styleUrls: ['./pay-form.component.scss']
 })
 export class PayFormComponent {
   username: string = '';
-  amount: string = '';
+  amount!: number ;
   card: string = '';
+
+  constructor(private apiMngService: ApiMngService){}
 
   onSubmit() {
     console.log('Form submitted:', { username: this.username, amount: this.amount, card: this.card });
+
+    // this.apiMngService.updateUserMoney(this.username, this.amount);
   }
 }

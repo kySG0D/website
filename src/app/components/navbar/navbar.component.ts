@@ -1,15 +1,12 @@
-import { CommonModule, Location } from '@angular/common';
-import { Component } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Router } from '@angular/router';
 import { urls } from '../../services/links.service';
-import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss',
-  standalone: true,
-  imports: [CommonModule, ButtonComponent]
+  styleUrls: ['./navbar.component.scss'],
 })
 
 export class NavbarComponent {

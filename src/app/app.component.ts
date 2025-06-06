@@ -1,16 +1,11 @@
 import { Component } from '@angular/core';
-import { FooterComponent } from './components/footer/footer.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, CommonModule]
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent{
   isHomeRoute: boolean = false;

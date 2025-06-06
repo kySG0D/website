@@ -1,6 +1,14 @@
 import { NgModule } from '@angular/core';
-import { routes } from './app.routes'; // Importe as rotas aqui
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './views/home/home.component';
+import { PayFormComponent } from './views/pay-form/pay-form.component';
+
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'form-sponser', component: PayFormComponent},
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
