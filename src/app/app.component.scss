@@ -35,14 +35,15 @@ h1, p{
     overflow: hidden;
 }
 
-.home-background{
-    // background-image: url("../assets/bg/bg-home.png");
-}
-
 .content {
     display: flex;
     flex: 1;
-  }
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
 
 .pointer{
     cursor: pointer;

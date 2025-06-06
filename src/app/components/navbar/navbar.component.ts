@@ -1,6 +1,6 @@
+import { CommonModule, Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 import { urls } from '../../services/links.service';
 import { ButtonComponent } from '../button/button.component';
 
@@ -21,14 +21,30 @@ export class NavbarComponent {
   navbarItems : {text:string, url: string}[]  = [
     {text: "INICIO", url: "inicio"},
     {text: "REGRAS", url: "regras"},
+    {text: "SPONSER", url: "form-sponser"},
   ]
 
   urls = urls;
   candidaturaURl = "Candidatar";
 
-  constructor(private location: Location) {}
+  constructor(
+    private location: Location,
+    public router: Router
+  ) {}
 
   scrollToSection(sectionId: string) {
+    if (this.location.path() !== '/') {
+      this.router.navigate(['/']).then(() => {
+        setTimeout(() => {
+          this.scrollTo(sectionId);
+        }, 100); // esperar até o DOM carregar
+      });
+    } else {
+      this.scrollTo(sectionId);
+    }
+  }
+
+  private scrollTo(sectionId: string): void {
     const section = document.getElementById(sectionId);
     if(section){
       if (sectionId === 'inicio') {

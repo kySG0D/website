@@ -35,7 +35,6 @@ export class homeComponent implements OnInit{
   urls = urls;
   connectServerRp = "Conectar";
   candidaturaURl = "Candidatar";
-  private audio: HTMLAudioElement = new Audio('../../assets/mp3/bg_sound.mp3');
 
   navbarItems = [
     { url: 'inicio', text: 'Início' },
@@ -65,13 +64,6 @@ export class homeComponent implements OnInit{
     if (sectionId && this.navbar) {
       this.navbar.scrollToSection(sectionId);
     }
-
-    this.audio.loop = true;
-    this.audio.volume = 0.3;
-
-    this.audio.play().catch((error) => {
-      console.warn('Reprodução automática bloqueada pelo navegador:', error);
-    });
   }
 
   startCarousel() {
