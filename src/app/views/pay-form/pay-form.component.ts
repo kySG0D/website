@@ -14,11 +14,11 @@ export class PayFormComponent implements AfterViewInit, OnDestroy {
   paypalRendered = false;
 
   valuesOptions = [
-    { label: '10€ - 200.000€', amount: 10, ingameAmount: 200000 },
-    { label: '20€ - 500.000€', amount: 20, ingameAmount: 500000 },
-    { label: '30€ - 600.000€', amount: 30, ingameAmount: 600000 },
-    { label: '50€ - 1.300.000€', amount: 50, ingameAmount: 1300000 },
-    { label: '100€ - 2.000.000€', amount: 100, ingameAmount: 2000000 }
+    { label: '10€ - 100.000$', amount: 10, ingameAmount: 100000 },
+    { label: '20€ - 300.000$', amount: 20, ingameAmount: 300000 },
+    { label: '30€ - 500.000$', amount: 30, ingameAmount: 500000 },
+    { label: '50€ - 1.000.000$', amount: 50, ingameAmount: 1000000 },
+    { label: '100€ - 2.500.000$', amount: 100, ingameAmount: 2500000 }
   ];
 
   private paypalButtonsInstance: any;
