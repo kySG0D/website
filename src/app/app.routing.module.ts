@@ -5,7 +5,7 @@ import { PayFormComponent } from './views/pay-form/pay-form.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'form-sponser', component: PayFormComponent},
+  { path: 'loja', component: PayFormComponent},
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '' }
 ];

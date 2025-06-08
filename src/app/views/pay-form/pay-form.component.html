@@ -1,39 +1,35 @@
 <div class="form-container">
-    <div class="donation-form">
-        <h1 class="title">Faz a tua doação</h1>
-      
-        <form (ngSubmit)="onSubmit()" #donationForm="ngForm">
-          <div class="form-group">
-            <label for="username">Nome do jogador (in-game)</label>
-            <input type="text" id="username" name="username" [(ngModel)]="username" required />
-          </div>
-      
-          <div class="form-group">
-            <label for="amount">Seleciona o valor da doação</label>
-          
-            <div class="select-wrapper">
-              <select
-                id="amount"
-                name="amount"
-                [(ngModel)]="amount"
-                required
-              >
-                <option value="20">20€ – 200 000$</option>
-                <option value="30">30€ – 300 000$</option>
-                <option value="50">50€ – 500 000$</option>
-                <option value="100">100€ – 1 000 000$</option>
-              </select>
-            </div>
-          </div>
-      
-            <div class="form-group">
-                <label for="card">Dados do Cartão</label>
-                <input type="text" id="card" name="card" [(ngModel)]="card" placeholder="XXXX XXXX XXXX XXXX" required />
-            </div>
-      
-            <button class="submit-btn" type="submit" [disabled]="!donationForm.form.valid">
-                <span class="submit-btn-text">Confirmar Doação</span>
-            </button>
-        </form>
-      </div>
+  <div class="donation-form">
+    <h1 class="title">Adicionar créditos</h1>
+
+    <div class="input-container">
+      <label for="username">Nome do jogador (in-game)</label>
+      <input
+        id="username"
+        type="text"
+        class="player-name-input"
+        [value]="username"
+        (input)="onUsernameChange($event)"
+        required
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="amount">Seleciona o valor</label>
+      <p-select
+        id="amount"
+        [options]="valuesOptions"
+        optionLabel="label"
+        optionValue="amount"
+        [filter]="false"
+        placeholder="Escolha um valor"
+        (onChange)="onAmountChange($event)"
+        [style]="{ width: '100%' }"
+      ></p-select>
+    </div>
+
+    <div *ngIf="username && amount !== null">
+      <div id="paypal-button-container" class="paypal-button-wrapper"></div>
+    </div>
+  </div>
 </div>

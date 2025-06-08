@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { urls } from '../../services/links.service';
 
@@ -18,7 +18,7 @@ export class NavbarComponent {
   navbarItems : {text:string, url: string}[]  = [
     {text: "INICIO", url: "inicio"},
     {text: "REGRAS", url: "regras"},
-    {text: "SPONSER", url: "form-sponser"},
+    {text: "LOJA", url: "loja"},
   ]
 
   urls = urls;

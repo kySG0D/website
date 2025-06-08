@@ -1,21 +1,104 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { ApiMngService } from '../../services/api-mng.service';
+
+declare var paypal: any;
 
 @Component({
   selector: 'app-pay-form',
   templateUrl: './pay-form.component.html',
   styleUrls: ['./pay-form.component.scss']
 })
-export class PayFormComponent {
+export class PayFormComponent implements AfterViewInit, OnDestroy {
   username: string = '';
-  amount!: number ;
-  card: string = '';
+  amount: number | null = null;
+  paypalRendered = false;
 
-  constructor(private apiMngService: ApiMngService){}
+  valuesOptions = [
+    { label: '10€ - 200.000€', amount: 10, ingameAmount: 200000 },
+    { label: '20€ - 500.000€', amount: 20, ingameAmount: 500000 },
+    { label: '30€ - 600.000€', amount: 30, ingameAmount: 600000 },
+    { label: '50€ - 1.300.000€', amount: 50, ingameAmount: 1300000 },
+    { label: '100€ - 2.000.000€', amount: 100, ingameAmount: 2000000 }
+  ];
 
-  onSubmit() {
-    console.log('Form submitted:', { username: this.username, amount: this.amount, card: this.card });
+  private paypalButtonsInstance: any;
 
-    // this.apiMngService.updateUserMoney(this.username, this.amount);
+  constructor(private apiMngService: ApiMngService, private cdr: ChangeDetectorRef) {}
+
+  ngAfterViewInit() {
+    this.tryRenderPaypalButton();
+  }
+
+  ngOnDestroy() {
+    this.destroyPaypalButton();
+  }
+
+  onAmountChange(event: any) {
+    const select = event.target as HTMLSelectElement;
+    this.amount = select.value ? Number(select.value) : null;
+  }
+
+  onUsernameChange(event: Event) {
+    this.username = (event.target as HTMLInputElement).value;
+    this.cdr.detectChanges();
+  }
+
+  private tryRenderPaypalButton() {
+    // Destrói botão antigo se existir
+    this.destroyPaypalButton();
+
+    // Só renderiza se os campos estiverem preenchidos
+    if (this.username && this.amount !== null) {
+      const container = document.getElementById('paypal-button-container');
+      if (container) {
+        this.paypalButtonsInstance = paypal.Buttons({
+          style: {
+            color: 'gold',
+            shape: 'pill',
+            label: 'pay',
+            height: 40
+          },
+          createOrder: (data: any, actions: any) => {
+            return actions.order.create({
+              purchase_units: [{
+                amount: {
+                  value: this.amount!.toFixed(2)
+                }
+              }]
+            });
+          },
+          onApprove: (data: any, actions: any) => {
+            return actions.order.capture().then((details: any) => {
+              console.log('Pagamento concluído com sucesso por:', details.payer.name.given_name);
+              this.apiMngService.updateUserMoney(this.username, this.amount!);
+            });
+          },
+          onCancel: () => {
+            console.log('Pagamento cancelado');
+          },
+          onError: (err: any) => {
+            console.error('Erro no pagamento', err);
+          }
+        });
+
+        this.paypalButtonsInstance.render('#paypal-button-container');
+        this.paypalRendered = true;
+      }
+    } else {
+      this.paypalRendered = false;
+    }
+  }
+
+  private destroyPaypalButton() {
+    if (this.paypalButtonsInstance) {
+      // A API do PayPal não tem método oficial para destruir o botão,
+      // mas podemos limpar o container para evitar duplicações.
+      const container = document.getElementById('paypal-button-container');
+      if (container) {
+        container.innerHTML = '';
+      }
+      this.paypalButtonsInstance = null;
+      this.paypalRendered = false;
+    }
   }
 }

@@ -5,7 +5,7 @@
         </div>
         <div class="navbar-info">
             <ng-container  *ngFor="let item of navbarItems; let last = last">
-                <a (click)="item.url !== 'form-sponser' ? scrollToSection(item.url) : router.navigate(['/' + item.url])" class="navbar-item">
+                <a (click)="item.url !== navbarItems[2].url ? scrollToSection(item.url) : router.navigate(['/' + item.url])" class="navbar-item">
                     {{ item.text }}
                   </a>                  
                 <span *ngIf="!last" class="separator"></span>

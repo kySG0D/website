@@ -13,7 +13,7 @@ export class SocialComponent {
   ];
 
   private defaultColor = "#ffffff"; // Cor padrão
-  private hoverColor = "#ffc046";   // Cor de hover
+  private hoverColor = "#FFC046";   // Cor de hover
 
   public openLinkInNewTab(url: string) {
     window.open(url, '_blank');
