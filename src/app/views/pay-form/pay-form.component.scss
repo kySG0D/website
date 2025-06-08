@@ -96,23 +96,6 @@ button:disabled {
   color: #ffffff;
 }
 
-/* Angular Material mat-form-field full width */
-.full-width {
-  width: 100%;
-}
-
-/* Dropdown overlay fixes */
-.cdk-overlay-container, .cdk-overlay-pane {
-  z-index: 1000 !important;
-  position: fixed !important;
-}
-
-.mat-select-panel {
-  max-height: 300px !important;
-  overflow-y: auto !important;
-}
-
-/* Payment methods styles */
 .payment-methods {
   display: flex;
   gap: 1rem;
@@ -148,7 +131,23 @@ p-select#amount {
   align-content: center;
   flex-wrap: wrap;
   border-radius: 4px;
+  padding: 10px;
 }
 p-overlay.ng-tns-c1151199684-0 div{
   background-color: #ffffff;
+}
+
+::ng-deep #amount > p-overlay > div > div > div{
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 5px;
+  padding: 8px;
+}
+
+::ng-deep #amount_list{
+  gap: 5px;
+}
+
+::ng-deep #amount_list > p-selectitem:hover {
+  color: #FFC046;
 }
