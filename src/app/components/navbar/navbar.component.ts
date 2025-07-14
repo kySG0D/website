@@ -18,7 +18,8 @@ export class NavbarComponent {
   navbarItems : {text:string, url: string}[]  = [
     {text: "INICIO", url: "inicio"},
     {text: "REGRAS", url: "regras"},
-    {text: "LOJA", url: "loja"},
+    {text: "DOAR", url: "doar"},
+    // {text: "LOJA", url: "loja"},
   ]
 
   urls = urls;

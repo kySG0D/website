@@ -30,7 +30,10 @@
     </div>
 
     <div *ngIf="username && amount !== null">
-      <div id="paypal-button-container" class="paypal-button-wrapper"></div>
+      <div class="flex-column gap-16">
+        <p class="">Vai ser redirecionado para o paypal</p>
+        <button class="pay-btn" type="button" (click)="buildPaymentUrl()">Pagar</button>
+      </div>
     </div>
   </div>
 </div>

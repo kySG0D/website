@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 
+import { DropdownModule } from 'primeng/dropdown';
+import { SelectModule } from 'primeng/select';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { ButtonComponent } from './components/button/button.component';
@@ -15,10 +17,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegrasComponent } from './components/regras/regras.component';
 import { SocialComponent } from './components/social/social.component';
+import { DonateComponent } from './views/donate/donate.component';
 import { HomeComponent } from './views/home/home.component';
 import { PayFormComponent } from './views/pay-form/pay-form.component';
-import { DropdownModule } from 'primeng/dropdown';
-import { SelectModule } from 'primeng/select';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SelectModule } from 'primeng/select';
     ButtonComponent,
     PayFormComponent,
     RegrasComponent,
-    SocialComponent
+    SocialComponent,
+    DonateComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { SelectModule } from 'primeng/select';
     MatFormFieldModule,
     MatSelectModule,
     DropdownModule,
-    SelectModule   
+    SelectModule
+    
   ],
   bootstrap: [AppComponent],
 })

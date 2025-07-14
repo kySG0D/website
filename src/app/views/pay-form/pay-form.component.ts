@@ -12,6 +12,7 @@ export class PayFormComponent implements AfterViewInit, OnDestroy {
   username: string = '';
   amount: number | null = null;
   paypalRendered = false;
+  private paymentBaseUrl = 'https://www.paypal.me/altarppt';
 
   valuesOptions = [
     { label: '10€ - 100.000$', amount: 10, ingameAmount: 100000 },
@@ -34,13 +35,13 @@ export class PayFormComponent implements AfterViewInit, OnDestroy {
   }
 
   onAmountChange(event: any) {
-    const select = event.target as HTMLSelectElement;
-    this.amount = select.value ? Number(select.value) : null;
+    this.amount = event.value ? Number(event.value) : null;
+    console.log(this.amount)
   }
 
-  onUsernameChange(event: Event) {
+  onUsernameChange(event: any) {
     this.username = (event.target as HTMLInputElement).value;
-    this.cdr.detectChanges();
+    console.log(this.username)
   }
 
   private tryRenderPaypalButton() {
@@ -89,6 +90,10 @@ export class PayFormComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  buildPaymentUrl(): void {
+    window.open(this.paymentBaseUrl + `/${this.amount}`, '_blank');
+  }
+  
   private destroyPaypalButton() {
     if (this.paypalButtonsInstance) {
       // A API do PayPal não tem método oficial para destruir o botão,
