@@ -7,8 +7,8 @@
                         <p class="home-text">{{welcomeText}}</p>
             
                         <div class="bts">
-                            <app-button btnType="normal" [link]="urls.connectServerRp" [buttonText]="connectServerRp"></app-button>
-                            <p class="txt-candidatura">Tens que ter whitelist</p>
+                            <app-button btnType="normal" [link]="isTabletOrMobile ? urls.candidaturaURl : urls.connectServerRp " [buttonText]="isTabletOrMobile ? candidaturaURl : connectServerRp"></app-button>
+                            <p *ngIf="!isTabletOrMobile" class="txt-candidatura">Tens que ter whitelist</p>
                         </div>
                     </div>
                 </div>

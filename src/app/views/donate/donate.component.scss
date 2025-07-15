@@ -1,5 +1,5 @@
 button {
-  width: 100%;
+  width: 30%;
   padding: 0.75rem;
   background-color: #FFC046;
   border: none;
@@ -7,7 +7,7 @@ button {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 24px;
   font-family: Arial, sans-serif;
   transition: background 0.3s ease;
 }
@@ -19,4 +19,35 @@ button {
 
 .gap-16{
   gap: 16px;
+}
+
+hr.dots {
+  border: none;
+  height: 1px;
+  width: 90%;
+  background: repeating-linear-gradient(
+    to right,
+    #FFC046 0px,
+    #FFC046 4px,
+    transparent 4px,
+    transparent 10px
+  );
+  margin: 70px;
+}
+
+.m-100{
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.donate-page{
+  font-size: 26px;
+  align-items: center;
+}
+
+@media (max-width: 480px) {
+  .m-100{
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }

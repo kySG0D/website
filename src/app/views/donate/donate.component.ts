@@ -6,9 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./donate.component.scss']
 })
 export class DonateComponent implements OnInit{
-
   ngOnInit(): void {
-    
   }
 
   donate(): void{

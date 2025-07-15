@@ -1,18 +1,20 @@
 <div class="navbar">
-    <div class="navbar-section">
-        <div class="navbar-icon">
-            <img class="img" [src]="navbarLogo.logoPath" [alt]="navbarLogo.logoAlt">
+    <div class="navbar-container">
+        <div class="navbar-section">
+            <div class="navbar-icon">
+                <img class="img" [src]="navbarLogo.logoPath" [alt]="navbarLogo.logoAlt">
+            </div>
+            <div class="navbar-info">
+                <ng-container  *ngFor="let item of navbarItems; let last = last">
+                    <a (click)="item.url !== navbarItems[2].url ? scrollToSection(item.url) : router.navigate(['/' + item.url])" class="navbar-item">
+                        {{ item.text }}
+                      </a>                  
+                    <span *ngIf="!last" class="separator"></span>
+                </ng-container>
+            </div>
         </div>
-        <div class="navbar-info">
-            <ng-container  *ngFor="let item of navbarItems; let last = last">
-                <a (click)="item.url !== navbarItems[2].url ? scrollToSection(item.url) : router.navigate(['/' + item.url])" class="navbar-item">
-                    {{ item.text }}
-                  </a>                  
-                <span *ngIf="!last" class="separator"></span>
-            </ng-container>
+        <div class="right-btn" *ngIf="!isTabletOrMobile">
+            <app-button btnType="navbar" [link]="urls.candidaturaURl" [buttonText]="candidaturaURl"></app-button>
         </div>
-    </div>
-    <div class="right-btn">
-        <app-button btnType="navbar" [link]="urls.candidaturaURl" [buttonText]="candidaturaURl"></app-button>
     </div>
 </div>

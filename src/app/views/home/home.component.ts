@@ -50,6 +50,8 @@ export class HomeComponent implements OnInit{
   ];
 
   activeIndex = 0;
+  mediaQuery = window.matchMedia("(max-width: 768px)");
+  isTabletOrMobile: boolean = this.mediaQuery.matches;
 
   ngOnInit(): void {
     this.updateBackgroundImage();
@@ -58,6 +60,10 @@ export class HomeComponent implements OnInit{
     if (sectionId && this.navbar) {
       this.navbar.scrollToSection(sectionId);
     }
+
+    this.mediaQuery.addEventListener("change", (event: MediaQueryListEvent) => {
+      this.isTabletOrMobile = event.matches;
+    });
   }
 
   startCarousel() {
