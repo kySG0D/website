@@ -18,16 +18,25 @@ export class NavbarComponent {
   navbarItems : {text:string, url: string}[]  = [
     {text: "INICIO", url: "inicio"},
     {text: "REGRAS", url: "regras"},
+    {text: "DOAR", url: "doar"},
     // {text: "LOJA", url: "loja"},
   ]
 
   urls = urls;
   candidaturaURl = "Candidatar";
+  mediaQuery = window.matchMedia("(max-width: 768px)");
+  isTabletOrMobile: boolean = this.mediaQuery.matches;
 
   constructor(
     private location: Location,
     public router: Router
   ) {}
+
+  ngOnInit(): void {
+    this.mediaQuery.addEventListener("change", (event: MediaQueryListEvent) => {
+      this.isTabletOrMobile = event.matches;
+    });
+  }
 
   scrollToSection(sectionId: string) {
     if (this.location.path() !== '/') {
