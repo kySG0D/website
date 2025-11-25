@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
+import { SnowService } from './services/snow.services';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,10 @@ export class AppComponent{
   isHomeRoute: boolean = false;
   private audio: HTMLAudioElement = new Audio('../../assets/mp3/bg_sound.mp3');
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private snow: SnowService
+  ) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
@@ -23,10 +27,22 @@ export class AppComponent{
     this.audio.loop = true;
     this.audio.volume = 0.3;
 
+    const today = new Date();
+    const month = today.getMonth() + 1;
+    const day = today.getDate();
+
     this.audio.play().catch((error) => {
       console.warn('Reprodução automática bloqueada pelo navegador:', error);
     });
 
+    const isWinterSeason = (month === 11 && day >= 24) || (month === 1 && day <= 7);
+
+    if (isWinterSeason) {
+      this.snow.start();
+    }
   }
   
+  ngOnDestroy() {
+    this.snow.stop();
+  }
 }
