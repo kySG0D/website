@@ -35,7 +35,7 @@ export class AppComponent{
       console.warn('Reprodução automática bloqueada pelo navegador:', error);
     });
 
-    const isWinterSeason = (month === 12 && day >= 1) || (month === 1 && day <= 7);
+    const isWinterSeason = (month === 12 && day >= 24) || (month === 1 && day <= 7);
 
     if (isWinterSeason) {
       this.snow.start();
