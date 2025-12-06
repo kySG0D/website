@@ -13,7 +13,7 @@ export class AppComponent{
   isChristmas: boolean = false;
   defaultAudio: string = '../../assets/mp3/bg_sound.mp3';
   christmasAudio: string = '../../assets/mp3/jingle_bells.mp3';
-  
+
   private audio = new Audio();
 
   constructor(
@@ -46,6 +46,7 @@ export class AppComponent{
 
     this.audio.loop = true;
     this.audio.volume = 0.3;
+    this.audio.preload = 'auto';
 
     this.audio.play().catch((error) => {
       console.warn('Reprodução automática bloqueada pelo navegador:', error);
@@ -54,5 +55,6 @@ export class AppComponent{
   
   ngOnDestroy() {
     this.snow.stop();
+    this.audio.pause();
   }
 }
