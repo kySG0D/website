@@ -10,7 +10,11 @@ import { SnowService } from './services/snow.services';
 })
 export class AppComponent{
   isHomeRoute: boolean = false;
-  private audio: HTMLAudioElement = new Audio('../../assets/mp3/bg_sound.mp3');
+  isChristmas: boolean = false;
+  defaultAudio: string = '../../assets/mp3/bg_sound.mp3';
+  christmasAudio: string = '../../assets/mp3/jingle_bells.mp3';
+
+  private audio = new Audio();
 
   constructor(
     private router: Router,
@@ -23,26 +27,34 @@ export class AppComponent{
     });
   }
 
-  ngOnInit(): void {
-    this.audio.loop = true;
-    this.audio.volume = 0.3;
-
+  checkIfItsChristmas(): void{
     const today = new Date();
     const month = today.getMonth() + 1;
     const day = today.getDate();
+    this.isChristmas = (month >= 12) || (month <= 1 && day <= 7);
+  }
+
+  ngOnInit(): void {
+    this.checkIfItsChristmas();
+
+    if (this.isChristmas) {
+      this.snow.start();
+      this.audio.src = this.christmasAudio;
+    }else{
+      this.audio.src = this.defaultAudio;
+    }
+
+    this.audio.loop = true;
+    this.audio.volume = 0.3;
+    this.audio.preload = 'auto';
 
     this.audio.play().catch((error) => {
       console.warn('Reprodução automática bloqueada pelo navegador:', error);
     });
-
-    const isWinterSeason = (month >= 12) || (month <= 1 && day <= 7);
-
-    if (isWinterSeason) {
-      this.snow.start();
-    }
   }
   
   ngOnDestroy() {
     this.snow.stop();
+    this.audio.pause();
   }
 }
