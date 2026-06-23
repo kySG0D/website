@@ -1,0 +1,6 @@
+<button *ngIf="btnType === 'normal'" class="pointer button-connect" (click)="openLink()">
+    <span class="btn-span-connect">{{ buttonText }}</span>
+</button>
+<button *ngIf="btnType === 'navbar'" class="pointer button-navbar" (click)="openLink()">
+    <span class="btn-span-navbar">{{ buttonText }}</span>
+</button>

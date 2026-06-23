@@ -1,0 +1,10 @@
+<div id="app-container">    
+  <app-navbar></app-navbar>
+  <div class="content-wrapper" [ngClass]="{ 'home-background': isHomeRoute }">
+    <div class="content">
+      <!-- O conteúdo principal da aplicação vai aqui -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,117 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(13, 14, 20, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-container{
+    height: 130px;
+    display: flex;
+    padding-right: 70px;
+    padding-left: 70px;
+    max-width: 1400px;
+}
+
+.right-btn{
+    display: flex;
+    align-items: center;
+}
+
+.txt-candidatura{
+    font-size: 14px;
+}
+
+.navbar-section{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.img{
+    height: 100px;
+    width: auto;
+}
+
+.navbar-icon {
+    height: 90px;
+    margin-right: 40px;
+}
+
+.navbar-info {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar-info a {
+    color: #ffffffe1;
+    margin: 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.navbar-info a:last-child {
+    margin-right: 0;
+}
+
+.separator {
+    border-left: 1px solid #ffffff;
+    height: 1em;
+}
+
+.navbar-info a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+
+.navbar-info a:hover{
+    color: #FFC046;
+    transform: translateY(20px);
+}
+
+@media (max-width: 675px) {
+    .navbar-icon{
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .navbar {
+        padding: 10px;
+    }
+    // .right-btn{
+    //     display: flex;
+    //     align-items: center;
+    //     margin: 0;
+    // }
+}
+
+@media (max-width: 455px) {
+    .navbar-icon{
+        display: flex;
+        align-items: center;
+    }
+    .img{
+        height: 80px;
+        width: auto;
+    }
+}
+
+@media (max-width: 425px) {
+    .navbar {
+        padding: 5px;
+    }
+    .img{
+        height: 60px;
+        width: auto;
+    }
+}

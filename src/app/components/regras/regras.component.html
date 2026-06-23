@@ -1,0 +1,11 @@
+<div class="regras">
+    <div class="img-container">
+        <img class="img" [src]="imgURL"/>
+    </div>
+    <ng-container *ngFor="let item of regras">
+        <div class="regras-container">
+            <h2 class="title" [innerHTML]="item.title"></h2>
+            <p class="text" [innerHTML]="item.text"></p>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,22 @@
+
+.icon {
+  transition: transform 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+.social-section{
+  margin: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.social-section img {
+  margin-right: 10px;
+}
+
+.social-section img:last-child {
+  margin-right: 0px;
+}

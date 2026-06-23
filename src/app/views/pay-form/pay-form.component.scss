@@ -1,0 +1,164 @@
+.donation-form {
+  background-color: rgba(26, 26, 36, 0.82);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* NÃO usar overflow: hidden aqui */
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  color: #FFC046;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+input,
+select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #FFC046;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  transition: background 0.3s ease;
+}
+
+.flex-column{
+  flex-direction: column;
+  display: flex;
+}
+
+.gap-16{
+  gap: 16px;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.submit-btn {
+  background-color: #FFC046;
+  border: none;
+  color: #000000;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 10px;
+  width: 400px;
+  height: 50px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.submit-btn-text {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.submit-btn:hover:disabled .submit-btn-text {
+  transform: none;
+  color: inherit;
+}
+
+.submit-btn:not(:disabled):hover .submit-btn-text {
+  transform: scale(1.1);
+  color: #ffffff;
+}
+
+.payment-methods {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.payment-btn {
+  background: none;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.payment-btn.active {
+  border-color: #FFC046;
+  background-color: #fff7d6;
+}
+
+.payment-btn img {
+  width: 40px;
+  height: auto;
+}
+
+p-select#amount {
+  width: 100%;
+  background-color: white;
+  color: black;
+  height: 30px;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  border-radius: 4px;
+  padding: 10px;
+}
+p-overlay.ng-tns-c1151199684-0 div{
+  background-color: #ffffff;
+}
+
+::ng-deep #amount > p-overlay > div > div > div{
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 5px;
+  padding: 8px;
+}
+
+::ng-deep #amount_list{
+  gap: 5px;
+}
+
+::ng-deep #amount_list > p-selectitem:hover {
+  color: #FFC046;
+}

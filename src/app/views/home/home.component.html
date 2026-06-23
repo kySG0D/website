@@ -1,0 +1,22 @@
+<div class="main">
+    <div id="inicio" class="inicio-section">
+        <div class="carousel-container">
+            <div class="carousel-box">
+                <div class="">
+                    <div class="home-box">
+                        <p class="home-text">{{welcomeText}}</p>
+            
+                        <div class="bts">
+                            <app-button btnType="normal" [link]="isTabletOrMobile ? urls.candidaturaURl : urls.connectServerRp " [buttonText]="isTabletOrMobile ? candidaturaURl : connectServerRp"></app-button>
+                            <p *ngIf="!isTabletOrMobile" class="txt-candidatura">Tens que ter whitelist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <div id="regras" class="section">
+        <app-regras></app-regras>
+    </div>
+</div>

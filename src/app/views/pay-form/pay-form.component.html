@@ -1,0 +1,39 @@
+<div class="form-container">
+  <div class="donation-form">
+    <h1 class="title">Adicionar créditos</h1>
+
+    <div class="input-container">
+      <label for="username">Nome do jogador (in-game)</label>
+      <input
+        id="username"
+        type="text"
+        class="player-name-input"
+        [value]="username"
+        (input)="onUsernameChange($event)"
+        required
+        [style]="{'font-size': 'large'}"
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="amount">Seleciona o valor</label>
+      <p-select
+        id="amount"
+        [options]="valuesOptions"
+        optionLabel="label"
+        optionValue="amount"
+        [filter]="false"
+        placeholder="Escolha um valor"
+        (onChange)="onAmountChange($event)"
+        [style]="{ width: '100%', height: '40px', 'font-size': 'large' }"
+      ></p-select>
+    </div>
+
+    <div *ngIf="username && amount !== null">
+      <div class="flex-column gap-16">
+        <p class="">Vai ser redirecionado para o paypal</p>
+        <button class="pay-btn" type="button" (click)="buildPaymentUrl()">Pagar</button>
+      </div>
+    </div>
+  </div>
+</div>

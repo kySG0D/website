@@ -1,0 +1,12 @@
+<div class="social-section">
+    <ng-container *ngFor="let item of social">
+        <img 
+            class="pointer icon icon-container" 
+            [src]="item.icon"
+            (mouseover)="onMouseOver($event)"
+            (mouseout)="onMouseOut($event)"
+            (click)="openLinkInNewTab(item.url)"
+            [attr.data-icon]="item.icon"
+        />
+    </ng-container>
+</div>
