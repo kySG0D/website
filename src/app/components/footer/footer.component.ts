@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
   
 })
 export class FooterComponent {
-  footerCopyRight = "2024 Alta Roleplay. Todos os direitos reservados";
+  currentYear: number = new Date().getFullYear();
+  footerCopyRight = " Alta Roleplay. Todos os direitos reservados";
 
   // linksSection : {url:string, text:string}[] = [
   //   {url: "/terms-conditions", text: "Termos e Condições"},

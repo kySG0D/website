@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-button',
@@ -11,8 +12,15 @@ export class ButtonComponent {
   @Input() newPage: boolean = true;
   @Input() buttonText: string = 'Open Link';
 
+  constructor(private router: Router) {}
+
   openLink(): void {
     if (!this.link) return;
-    this.newPage ? window.open(this.link, '_blank') : window.location.href = this.link;
+    if(this.newPage){ 
+      window.open(this.link, '_blank')
+      return;
+    }
+    
+    this.router.navigate([this.link]);
   }
 }
