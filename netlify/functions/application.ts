@@ -8,6 +8,10 @@ export const handler: Handler = async (event) => {
     console.log('📦 RECEIVED DATA:', data);
     const apiKey = process.env['RESEND_API_KEY'];
     console.log('🔑 API KEY EXISTS:', !!apiKey);
+
+    console.log('ENV KEYS:', Object.keys(process.env));
+    console.log('RESEND KEY:', apiKey);
+
     if (!apiKey) {
       console.error('❌ Missing RESEND_API_KEY');
       return {
