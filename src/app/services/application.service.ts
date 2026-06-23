@@ -1,25 +1,19 @@
 import { ApplicationFormData } from "../interfaces/application.interface";
 
 export const submitApplication = async (formData: ApplicationFormData) => {
-    console.log(formData)
-    const response = await fetch(
-        // 'http://localhost:3000/application',
-        'https://altarp.pt',
-        {
+
+    const response = await fetch('/api/application', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-        }
-    );
+    });
 
     const data = await response.json();
 
     if (!response.ok) {
-        const err = await response.json();
-        console.log('BACKEND ERROR:', err);
-        throw new Error(err?.message || 'Erro ao enviar candidatura');
+        throw new Error(data?.message || 'Erro ao enviar candidatura');
     }
 
     return data;

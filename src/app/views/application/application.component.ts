@@ -103,18 +103,23 @@ export class ApplicationComponent implements OnInit{
             : this.formData.howFoundServer
       };
 
-      await submitApplication(payload);
+      const responde = await submitApplication(payload);
 
-      this.modalService.open({
-        title: 'Candidatura enviada com sucesso!',
-        message: 'A nossa equipa irá avaliar a candidatura e entrar em contacto contigo o mais breve possivel!',
-        onClose: () => {
-          console.log('Modal fechado!');
-          window.location.href = '/';
-        }
-      });
+      if(responde.ok) {
+        this.loadingService.hide();
+        this.modalService.open({
+          title: 'Candidatura enviada com sucesso!',
+          message: 'A nossa equipa irá avaliar a candidatura e entrar em contacto contigo o mais breve possivel!',
+          onClose: () => {
+            console.log('Modal fechado!');
+            window.location.href = '/';
+          }
+        });
+      }
+
     } catch (error) {
       console.error(error);
+      this.loadingService.hide();
       this.modalService.open({
         title: 'Algo correu mal',
         message: 'Se o erro presistir entra em contacto diretamente com a nossa equipa através das redes sociais! Obrigado',
@@ -124,7 +129,6 @@ export class ApplicationComponent implements OnInit{
       });
     } finally {
       this.isLoading = false;
-      this.loadingService.hide();
     }
   }
 }
