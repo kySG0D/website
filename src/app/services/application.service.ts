@@ -3,7 +3,8 @@ import { ApplicationFormData } from "../interfaces/application.interface";
 export const submitApplication = async (formData: ApplicationFormData) => {
     console.log(formData)
     const response = await fetch(
-        'http://localhost:3000/application',
+        // 'http://localhost:3000/application',
+        'https://altarp.pt',
         {
         method: 'POST',
         headers: {
