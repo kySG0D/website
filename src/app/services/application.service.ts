@@ -2,6 +2,7 @@ import { ApplicationFormData } from "../interfaces/application.interface";
 
 export const submitApplication = async (formData: ApplicationFormData) => {
 
+    // const response = await fetch('/.netlify/functions/application', {
     const response = await fetch('/api/application', {
         method: 'POST',
         headers: {
