@@ -66,7 +66,6 @@ export class ApplicationComponent implements OnInit{
   }
 
   updateFormValidity(): void {
-    console.log('entrou')
     const f = this.formData;
 
     const howFound =
@@ -91,6 +90,7 @@ export class ApplicationComponent implements OnInit{
   }
 
   async handleSubmit(): Promise<void> {
+    console.log('new')
     this.loadingService.show();
     this.isLoading = true;
 
@@ -111,7 +111,6 @@ export class ApplicationComponent implements OnInit{
           title: 'Candidatura enviada com sucesso!',
           message: 'A nossa equipa irá avaliar a candidatura e entrar em contacto contigo o mais breve possivel!',
           onClose: () => {
-            console.log('Modal fechado!');
             window.location.href = '/';
           }
         });
@@ -124,7 +123,6 @@ export class ApplicationComponent implements OnInit{
         title: 'Algo correu mal',
         message: 'Se o erro presistir entra em contacto diretamente com a nossa equipa através das redes sociais! Obrigado',
         onClose: () => {
-          console.log('Modal fechado!');
         }
       });
     } finally {
