@@ -17,10 +17,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegrasComponent } from './components/regras/regras.component';
 import { SocialComponent } from './components/social/social.component';
+import { ApplicationComponent } from './views/application/application.component';
 import { DonateComponent } from './views/donate/donate.component';
 import { HomeComponent } from './views/home/home.component';
 import { PayFormComponent } from './views/pay-form/pay-form.component';
-import { ApplicationComponent } from './views/application/application.component';
+import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
+import { ModalScreenComponent } from './components/modal-screen/modal-screen.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ApplicationComponent } from './views/application/application.component'
     RegrasComponent,
     SocialComponent,
     DonateComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    LoadingScreenComponent,
+    ModalScreenComponent
   ],
   imports: [
     BrowserModule,

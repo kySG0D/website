@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { submitApplication } from '../../services/application.service';
 import { ApplicationFormData } from '../../interfaces/application.interface';
+import { LoadingService } from '../../services/loading.service';
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'app-application',
@@ -8,6 +10,7 @@ import { ApplicationFormData } from '../../interfaces/application.interface';
   styleUrls: ['./application.component.scss']
 })
 export class ApplicationComponent implements OnInit{
+  
   isLoading = false;
   formValid = false;
   emailTouched = false;
@@ -33,6 +36,9 @@ export class ApplicationComponent implements OnInit{
   ]
 
   howFoundServerCustom: string = '';
+
+  
+  constructor(private modalService: ModalService, private loadingService: LoadingService) {}
 
   ngOnInit(): void {
   }
@@ -82,13 +88,10 @@ export class ApplicationComponent implements OnInit{
     const allFilled = requiredFields.every(x => x && x.trim().length > 0);
 
     this.formValid = allFilled && this.isEmailValid(f.email);
-
-    console.log('is valid',this.formValid)
-    console.log(allFilled)
-    console.log(requiredFields)
   }
 
   async handleSubmit(): Promise<void> {
+    this.loadingService.show();
     this.isLoading = true;
 
     try {
@@ -102,13 +105,26 @@ export class ApplicationComponent implements OnInit{
 
       await submitApplication(payload);
 
-      alert('Candidatura enviada com sucesso!');
-      // window.location.href = '/';
+      this.modalService.open({
+        title: 'Candidatura enviada com sucesso!',
+        message: 'A nossa equipa irá avaliar a candidatura e entrar em contacto contigo o mais breve possivel!',
+        onClose: () => {
+          console.log('Modal fechado!');
+          window.location.href = '/';
+        }
+      });
     } catch (error) {
       console.error(error);
-      alert('Erro ao enviar candidatura.');
+      this.modalService.open({
+        title: 'Algo correu mal',
+        message: 'Se o erro presistir entra em contacto diretamente com a nossa equipa através das redes sociais! Obrigado',
+        onClose: () => {
+          console.log('Modal fechado!');
+        }
+      });
     } finally {
       this.isLoading = false;
+      this.loadingService.hide();
     }
   }
 }

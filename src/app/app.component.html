@@ -2,7 +2,8 @@
   <app-navbar></app-navbar>
   <div class="content-wrapper" [ngClass]="{ 'home-background': isHomeRoute }">
     <div class="content">
-      <!-- O conteúdo principal da aplicação vai aqui -->
+       <app-loading-screen></app-loading-screen>
+       <app-modal-screen></app-modal-screen>
       <router-outlet></router-outlet>
     </div>
   </div>
