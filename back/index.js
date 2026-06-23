@@ -17,33 +17,54 @@ app.use(cors({
 }));
 app.options(/.*/, cors());
 app.use(express.json());
-
+console.log('key - ',process.env.RESEND_API_KEY)
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.post('/application', async (req, res) => {
   const data = req.body;
 
   try {
-    await resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: 'mikesousa99@hotmail.com',
+    const result = await resend.emails.send({
+      from: 'AltaRP <onboarding@resend.dev>',
+      to: 'comunidadealta24@gmail.com',
       subject: `Nova candidatura - ${data.name}`,
       html: `
         <h2>Nova candidatura AltaRP</h2>
 
-        <p><b>Nome:</b> ${data.name}</p>
-        <p><b>Idade:</b> ${data.age}</p>
-        <p><b>Discord:</b> ${data.discord}</p>
-        <p><b>Steam:</b> ${data.steamId}</p>
-        <p><b>Motivo:</b> ${data.reason}</p>
+        
+
+
+
+        <p><b>Steam : </b> ${data.steamId}</p>
+        <p><b>Nome : </b> ${data.name}</p>
+        <p><b>Email : </b> ${data.email}</p>
+        <p><b>Discord (username) : </b> ${data.discord}</p>
+
+        ----- Personagem -----
+
+        <p><b>Nome (IC) : </b> ${data.icName}</p>
+        <p><b>História (IC) : </b> ${data.icHistory}</p>
+
+        <p><b>Quais são os teus objetivos no ALTA RP? : </b> ${data.objectives}</p>
+        <p><b>Como descobriste o SV ? : </b> ${data.howFoundServer}</p>
+
+        #RECEBA , tio mike melhor programador #chatgpt#
       `
     });
 
-    res.json({ ok: true });
+    console.log('RESEND RESULT:', result);
 
+    return res.json({ ok: true, result });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ ok: false });
+    console.error('🔥 FULL ERROR:', error);
+    console.error('🔥 MESSAGE:', error?.message);
+    console.error('🔥 STACK:', error?.stack);
+
+    return res.status(500).json({
+      ok: false,
+      message: error?.message,
+      error
+    });
   }
 });
 

@@ -22,6 +22,8 @@ export class NavbarComponent {
     // {text: "LOJA", url: "loja"},
   ]
 
+  applicationFormUrl : string = 'application-form'
+
   urls = urls;
   candidaturaURl = "Candidatar";
   mediaQuery = window.matchMedia("(max-width: 768px)");

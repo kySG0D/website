@@ -1,7 +1,10 @@
 export interface ApplicationFormData {
   name: string;
-  age: number;
   discord: string;
+  email: string;
   steamId: string;
-  reason: string;
+  icName: string;
+  icHistory: string;
+  objectives: string;
+  howFoundServer: string;
 }

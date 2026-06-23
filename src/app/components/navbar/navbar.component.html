@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="right-btn" *ngIf="!isTabletOrMobile">
-            <app-button btnType="navbar" [link]="urls.candidaturaURl" [buttonText]="candidaturaURl"></app-button>
+            <app-button [newPage]="false" btnType="navbar" [link]="applicationFormUrl" [buttonText]="candidaturaURl"></app-button>
         </div>
     </div>
 </div>

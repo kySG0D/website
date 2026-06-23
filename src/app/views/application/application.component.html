@@ -1,19 +1,70 @@
-<form (ngSubmit)="handleSubmit()">
+<form (ngSubmit)="handleSubmit()" class="form">
+    <div class="section-title">Sobre ti</div>
 
-  <input
-    [(ngModel)]="formData.name"
-    name="name"
-    placeholder="Nome"
-  >
+    <input [(ngModel)]="formData.name" (ngModelChange)="updateFormValidity()" name="name" placeholder="Nome" />
+    <input [(ngModel)]="formData.discord" (ngModelChange)="updateFormValidity()" name="discord" placeholder="Discord" />
+    <input
+        [(ngModel)]="formData.email"
+        (ngModelChange)="onEmailChange()"
+        (blur)="onEmailBlur()"
+        name="email"
+        placeholder="Email"
+    />
 
-  <input
-    [(ngModel)]="formData.discord"
-    name="discord"
-    placeholder="Discord"
-  >
+    <span class="error-text" class="error-text"
+        *ngIf="
+        emailTouched &&
+        formData.email.length > 0 &&
+        !isEmailValid(formData.email)
+        "
+    >formato inválido, exemplo&#64;examplo.com</span>
 
-  <button type="submit">
-    Enviar
-  </button>
+    <input [(ngModel)]="formData.steamId" (ngModelChange)="updateFormValidity()" name="steamId" placeholder="Steam ID" />
 
+    <div class="section-title">Personagem</div>
+
+    <input [(ngModel)]="formData.icName" (ngModelChange)="updateFormValidity()" name="icName" placeholder="Nome do personagem" />
+
+    <textarea 
+        [(ngModel)]="formData.icHistory"
+        (ngModelChange)="updateFormValidity()"
+        name="icHistory"
+        placeholder="História do personagem"
+    ></textarea>
+
+    <textarea
+        [(ngModel)]="formData.objectives"
+        (ngModelChange)="updateFormValidity()"
+        name="objectives"
+        placeholder="Objetivos no servidor"
+    ></textarea>
+
+    <div class="section-title">Como conheceste o servidor?</div>
+
+    <label class="radio-card" *ngFor="let opt of howFoundServerOptions">
+        <input
+            type="radio"
+            name="howFoundServer"
+            [value]="opt"
+            [(ngModel)]="formData.howFoundServer"
+            (ngModelChange)="updateFormValidity()"
+        />
+        <span>{{ opt }}</span>
+    </label>
+
+    <input
+        *ngIf="formData.howFoundServer === 'Outro'"
+        [(ngModel)]="howFoundServerCustom"
+        (ngModelChange)="updateFormValidity()"
+        name="howFoundCustom"
+        placeholder="Especifica como nos encontraste..."
+    />
+
+    <button
+        type="submit"
+        [disabled]="!formValid || isLoading"
+        class="submit-btn"
+    >
+        Enviar candidatura
+    </button>
 </form>
