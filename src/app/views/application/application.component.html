@@ -1,0 +1,19 @@
+<form (ngSubmit)="handleSubmit()">
+
+  <input
+    [(ngModel)]="formData.name"
+    name="name"
+    placeholder="Nome"
+  >
+
+  <input
+    [(ngModel)]="formData.discord"
+    name="discord"
+    placeholder="Discord"
+  >
+
+  <button type="submit">
+    Enviar
+  </button>
+
+</form>

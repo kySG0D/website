@@ -20,6 +20,7 @@ import { SocialComponent } from './components/social/social.component';
 import { DonateComponent } from './views/donate/donate.component';
 import { HomeComponent } from './views/home/home.component';
 import { PayFormComponent } from './views/pay-form/pay-form.component';
+import { ApplicationComponent } from './views/application/application.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PayFormComponent } from './views/pay-form/pay-form.component';
     PayFormComponent,
     RegrasComponent,
     SocialComponent,
-    DonateComponent
+    DonateComponent,
+    ApplicationComponent
   ],
   imports: [
     BrowserModule,

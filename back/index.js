@@ -15,7 +15,7 @@ app.use(cors({
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));
-app.options('*', cors());
+app.options(/.*/, cors());
 app.use(express.json());
 
 const resend = new Resend(process.env.RESEND_API_KEY);

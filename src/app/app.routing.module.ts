@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { PayFormComponent } from './views/pay-form/pay-form.component';
 import { DonateComponent } from './views/donate/donate.component';
+import { ApplicationComponent } from './views/application/application.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'loja', component: PayFormComponent},
   { path: 'doar', component: DonateComponent},
+  { path: 'application-form', component: ApplicationComponent},
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '' }
 ];

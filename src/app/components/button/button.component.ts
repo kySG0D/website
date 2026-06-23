@@ -8,11 +8,11 @@ import { Component, Input } from '@angular/core';
 export class ButtonComponent {
   @Input() btnType: string | 'normal' = '';
   @Input() link: string = '';
+  @Input() newPage: boolean = true;
   @Input() buttonText: string = 'Open Link';
 
   openLink(): void {
-    if (this.link) {
-      window.open(this.link, '_blank');
-    }
+    if (!this.link) return;
+    this.newPage ? window.open(this.link, '_blank') : window.location.href = this.link;
   }
 }
