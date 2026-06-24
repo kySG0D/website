@@ -90,7 +90,7 @@ export class ApplicationComponent implements OnInit{
   }
 
   async handleSubmit(): Promise<void> {
-    console.log('submit2')
+    console.log('submit0')
     this.loadingService.show();
     this.isLoading = true;
 
