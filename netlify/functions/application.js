@@ -3,8 +3,8 @@ import { Resend } from 'resend';
 export const handler = async (event) => {
   console.log('🔥 FUNCTION TRIGGERED 999');
 
-  // const apiKey = process.env.RESEND_API_KEY;
-  const apiKey = 're_ftZc6rPf_DKPKu1EWxWrpN3CZWFCVewuj';
+  const apiKey = process.env.RESEND_API_KEY;
+  // const apiKey = 're_ftZc6rPf_DKPKu1EWxWrpN3CZWFCVewuj';
 
   console.log('🧪 DEBUG KEY EXISTS:', !!apiKey);
 
