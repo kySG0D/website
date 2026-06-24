@@ -1,6 +1,10 @@
 [build]
+  command = "npm run build"
+  publish = "dist/website/browser"
   functions = "netlify/functions"
-  publish = "dist/website"
+
+[build.environment]
+  NODE_VERSION = "20"
 
 [[redirects]]
   from = "/api/*"
