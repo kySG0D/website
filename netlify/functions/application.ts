@@ -3,6 +3,13 @@ import { Handler } from '@netlify/functions';
 
 export const handler: Handler = async (event) => {
   console.log('🔥 FUNCTION TRIGGERED');
+  console.log({
+    hasKey: !!process.env['RESEND_API_KEY'],
+    context: process.env['CONTEXT'],
+    nodeEnv: process.env['NODE_ENV']
+  });
+  console.log('passou')
+  
   try {
     const data = JSON.parse(event.body || '{}');
     console.log('📦 RECEIVED DATA:', data);
