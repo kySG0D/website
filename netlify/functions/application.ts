@@ -2,7 +2,7 @@ import { Resend } from 'resend';
 import { Handler } from '@netlify/functions';
 
 export const handler: Handler = async (event) => {
-  console.log('🔥 FUNCTION TRIGGERED');
+  console.log('🔥 FUNCTION TRIGGERED 999');
   console.log('🧪 DEBUG ENV:', {
     hasKey: !!process.env['RESEND_API_KEY'],
     key: process.env['RESEND_API_KEY'],
